@@ -1,7 +1,12 @@
-import css from "./SearchBox.module.css";
+// import css from "./SearchBox.module.css";
 
 const SearchBox = () => {
-  return <div>SearchBox</div>;
+  return (
+    <div>
+      <p>Find contacts by name</p>
+      <input type="text" />
+    </div>
+  );
 };
 
 export default SearchBox;
