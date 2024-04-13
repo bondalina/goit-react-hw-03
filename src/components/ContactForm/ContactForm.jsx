@@ -9,10 +9,8 @@ const FeedbackSchema = Yup.object().shape({
     .max(50, "Too long!")
     .required("Required!"),
   number: Yup.string()
-    .matches(/^\{3}-\d{2}-\d{2}$/, {
-      message: "Invalid number! Try 000-00-00",
-      excludeEmptyString: false,
-    })
+    .min(3, "Too short!")
+    .max(50, "Too long!")
     .required("Required!"),
 });
 

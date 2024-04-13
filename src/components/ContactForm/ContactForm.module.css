@@ -6,6 +6,7 @@
   width: 450px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 .labelForm {
   font-size: 24px;
@@ -14,10 +15,10 @@
 }
 
 .inputForm {
-  border: 1px solit grey;
   font-size: 16px;
   padding: 10px;
 }
+
 .btnForm {
   display: block;
   margin: 0 auto;
