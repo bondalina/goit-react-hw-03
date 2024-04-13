@@ -5,10 +5,11 @@
 }
 .searchInput {
   box-sizing: border-box;
-  border: 1px solit black;
-  border-radius: 4px;
+  border: 1px solid black;
+  border-radius: 3px;
   font-size: 16px;
   padding: 10px;
   margin-bottom: 20px;
   width: 450px;
+  outline: none;
 }
