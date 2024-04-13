@@ -1,7 +1,7 @@
-// import css from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
+import css from "./ContactForm.module.css";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -9,8 +9,10 @@ const FeedbackSchema = Yup.object().shape({
     .max(50, "Too long!")
     .required("Required!"),
   number: Yup.string()
-    .min(3, "Too short!")
-    .max(50, "Too long!")
+    .matches(/^\{3}-\d{2}-\d{2}$/, {
+      message: "Invalid number! Try 000-00-00",
+      excludeEmptyString: false,
+    })
     .required("Required!"),
 });
 
@@ -39,14 +41,28 @@ const ContactForm = ({ onAdd }) => {
       validationSchema={FeedbackSchema}
     >
       <Form>
-        <div>
-          <label htmlFor={nameFieldId}>Name</label>
-          <Field type="text" name="name" />
-          <ErrorMessage name="name" component="span" />
-          <label htmlFor={numberFieldId}>Number</label>
-          <Field type="text" name="number" />
-          <ErrorMessage name="number" component="span" />
-          <button type="submit">Add contact</button>
+        <div className={css.userForm}>
+          <label className={css.labelForm} htmlFor={nameFieldId}>
+            Name
+          </label>
+          <Field className={css.inputForm} type="text" name="name" />
+          <ErrorMessage
+            className={css.errMessage}
+            name="name"
+            component="span"
+          />
+          <label className={css.labelForm} htmlFor={numberFieldId}>
+            Number
+          </label>
+          <Field className={css.inputForm} type="text" name="number" />
+          <ErrorMessage
+            className={css.errMessage}
+            name="number"
+            component="span"
+          />
+          <button className={css.btnForm} type="submit">
+            Add contact
+          </button>
         </div>
       </Form>
     </Formik>
